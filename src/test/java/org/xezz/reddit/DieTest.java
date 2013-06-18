@@ -39,7 +39,7 @@ public class DieTest {
         final int faces = 15;
         Die testee = new Die(times, faces);
         // Do a lot rolls to get a more reliable test
-        for (int j = Integer.MIN_VALUE; j <= Integer.MIN_VALUE; j++) {
+        for (int j = 0; j <= Integer.MAX_VALUE / 5000; j++) {
             final List<Integer> rolls = testee.rollDice();
             assertThat("Size of the result does not match", times, is(rolls.size()));
             for (Integer i : rolls) {
