@@ -13,10 +13,10 @@ public class App {
             System.out.println(getString(DieParser.parse("4d6").rollDice()));
         } catch (NumberFormatException e) {
             System.err.println("Invalid format of the input String");
-            System.err.println(e.toString());
+            e.printStackTrace();
         } catch (IllegalArgumentException e) {
             System.err.println("Invalid arguments");
-            System.err.println(e.toString());
+            e.printStackTrace();
         }
     }
 
