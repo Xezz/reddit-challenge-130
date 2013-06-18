@@ -12,11 +12,11 @@ public class App {
             System.out.println(getString(DieParser.parse("2d20").rollDice()));
             System.out.println(getString(DieParser.parse("4d6").rollDice()));
         } catch (NumberFormatException e) {
-            System.out.println("Invalid format of the input String");
-            e.printStackTrace();
+            System.err.println("Invalid format of the input String");
+            System.err.println(e.toString());
         } catch (IllegalArgumentException e) {
-            System.out.print("Invalid arguments");
-            e.printStackTrace();
+            System.err.println("Invalid arguments");
+            System.err.println(e.toString());
         }
     }
 
