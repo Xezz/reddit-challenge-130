@@ -3,24 +3,24 @@ package org.xezz.reddit;
 import java.util.List;
 
 /**
- * Hello world!
+ * Reddit challenge 130
  */
-public class App {
-    public static void main(String[] args) {
+    public class App {
+        public static void main(String[] args) {
 
-        final List<Integer> rolledTwoDice = DieParser.parse("2d20").rollDice();
-        final List<Integer> rolledFourDice = DieParser.parse("4d6").rollDice();
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Integer roll : rolledTwoDice) {
-            stringBuilder.append(roll).append(" ");
+            final List<Integer> rolledTwoDice = DieParser.parse("2d20").rollDice();
+            final List<Integer> rolledFourDice = DieParser.parse("4d6").rollDice();
+            String outputTwoDice = getString(rolledTwoDice);
+            String outputFourDice = getString(rolledFourDice);
+            System.out.println(outputTwoDice);
+            System.out.println(outputFourDice);
         }
-        String outputTwoDice = stringBuilder.toString().trim();
-        stringBuilder = new StringBuilder();
-        for (Integer roll: rolledFourDice) {
-            stringBuilder.append(roll).append(" ");
+
+        private static String getString(List<Integer> rolledTwoDice) {
+            StringBuilder stringBuilder = new StringBuilder();
+            for (Integer roll : rolledTwoDice) {
+                stringBuilder.append(roll).append(" ");
+            }
+            return stringBuilder.toString().trim();
         }
-        String outputFourDice = stringBuilder.toString().trim();
-        System.out.println(outputTwoDice);
-        System.out.println(outputFourDice);
     }
-}

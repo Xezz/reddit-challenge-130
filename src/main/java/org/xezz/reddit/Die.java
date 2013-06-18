@@ -9,38 +9,38 @@ import java.util.Random;
  * Date: 18.06.13
  * Time: 12:38
  */
-public class Die {
-    private final int times;
-    private final int faces;
-    private final Random randomGenerator;
+    public class Die {
+        private final int times;
+        private final int faces;
+        private final Random randomGenerator;
 
-    public Die(final int times, final int faces) {
-        if (times < 1) {
-            throw new IllegalArgumentException("Faces must be greater or equal to 1");
+        public Die(final int times, final int faces) {
+            if (times < 1) {
+                throw new IllegalArgumentException("Faces must be greater or equal to 1");
+            }
+            if (faces < 2) {
+                throw new IllegalArgumentException("Faces must be greater or equal to 2");
+            }
+            this.times = times;
+            this.faces = faces;
+            // Could try with current time as seed too
+            randomGenerator = new Random();
         }
-        if (faces < 2) {
-            throw new IllegalArgumentException("Faces must be greater or equal to 2");
+
+        public List<Integer> rollDice() {
+            final List<Integer> diceRolls = new ArrayList<Integer>(times);
+            for (int i = 0; i < times; i++) {
+                Integer roll = randomGenerator.nextInt(faces) + 1;
+                diceRolls.add(roll);
+            }
+            return diceRolls;
         }
-        this.times = times;
-        this.faces = faces;
-        // Could try with current time as seed too
-        randomGenerator = new Random();
-    }
 
-    public List<Integer> rollDice() {
-        final List<Integer> diceRolls = new ArrayList<Integer>(times);
-        for (int i = 0; i < times; i++) {
-            Integer roll = randomGenerator.nextInt(faces) + 1;
-            diceRolls.add(roll);
+        public int getFaces() {
+            return faces;
         }
-        return diceRolls;
-    }
 
-    public int getFaces() {
-        return faces;
+        public int getTimes() {
+            return times;
+        }
     }
-
-    public int getTimes() {
-        return times;
-    }
-}
