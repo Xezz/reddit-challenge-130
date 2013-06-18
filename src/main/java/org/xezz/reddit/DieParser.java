@@ -7,7 +7,7 @@ package org.xezz.reddit;
  */
 public class DieParser {
 
-    public static Die parse(final String input) {
+    public static Die parse(final String input) throws NumberFormatException {
         if (input == null) {
             throw new IllegalArgumentException("Input must not be null");
         }

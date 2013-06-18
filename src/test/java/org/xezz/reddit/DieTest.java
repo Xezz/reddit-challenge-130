@@ -38,11 +38,14 @@ public class DieTest {
         final int times = 10;
         final int faces = 15;
         Die testee = new Die(times, faces);
-        final List<Integer> rolls = testee.rollDice();
-        assertThat("Size of the result does not match", times, is(rolls.size()));
-        for (Integer i : rolls) {
-            assertThat("Result is not within lower boundaries", i, is(greaterThan(0)));
-            assertThat("Result is not within upper boundaries", i, is(lessThanOrEqualTo(faces)));
+        // Do a lot rolls to get a more reliable test
+        for (int j = Integer.MIN_VALUE; j <= Integer.MIN_VALUE; j++) {
+            final List<Integer> rolls = testee.rollDice();
+            assertThat("Size of the result does not match", times, is(rolls.size()));
+            for (Integer i : rolls) {
+                assertThat("Result is not within lower boundaries", i, is(greaterThan(0)));
+                assertThat("Result is not within upper boundaries", i, is(lessThanOrEqualTo(faces)));
+            }
         }
     }
 }
